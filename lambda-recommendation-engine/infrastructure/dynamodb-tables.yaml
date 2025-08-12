@@ -1,0 +1,86 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'DynamoDB tables for Vector-based Recommendation Engine POC'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: 'dev'
+    Description: 'Environment name (dev, staging, prod)'
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+
+Resources:
+  # Customer Embeddings Table
+  CustomerEmbeddingsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'CustomerEmbeddings-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: customer_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: customer_id
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: Project
+          Value: 'VectorRecommendationEngine'
+        - Key: Component
+          Value: 'CustomerData'
+
+  # Product Embeddings Table
+  ProductEmbeddingsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'ProductEmbeddings-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: product_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: product_id
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: Project
+          Value: 'VectorRecommendationEngine'
+        - Key: Component
+          Value: 'ProductData'
+
+Outputs:
+  CustomerEmbeddingsTableName:
+    Description: 'Name of the Customer Embeddings DynamoDB table'
+    Value: !Ref CustomerEmbeddingsTable
+    Export:
+      Name: !Sub '${AWS::StackName}-CustomerEmbeddingsTable'
+
+  CustomerEmbeddingsTableArn:
+    Description: 'ARN of the Customer Embeddings DynamoDB table'
+    Value: !GetAtt CustomerEmbeddingsTable.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-CustomerEmbeddingsTableArn'
+
+  ProductEmbeddingsTableName:
+    Description: 'Name of the Product Embeddings DynamoDB table'
+    Value: !Ref ProductEmbeddingsTable
+    Export:
+      Name: !Sub '${AWS::StackName}-ProductEmbeddingsTable'
+
+  ProductEmbeddingsTableArn:
+    Description: 'ARN of the Product Embeddings DynamoDB table'
+    Value: !GetAtt ProductEmbeddingsTable.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ProductEmbeddingsTableArn'

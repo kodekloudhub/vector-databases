@@ -1,0 +1,19 @@
+# Core Streamlit and web framework
+streamlit==1.29.0
+
+# Text processing and embeddings - Fixed compatibility
+sentence-transformers==2.7.0
+huggingface-hub==0.20.3
+scikit-learn==1.3.2
+numpy==1.24.3
+pandas==2.1.4
+
+# Visualization
+plotly==5.17.0
+
+# Text preprocessing
+nltk==3.8.1
+
+# Utilities
+requests==2.31.0
+tqdm==4.66.1

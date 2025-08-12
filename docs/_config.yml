@@ -1,0 +1,46 @@
+# GitHub Pages Configuration for Text-to-Vector Converter
+
+title: "Text to Vector Converter - Educational Guide"
+description: "Learn how computers convert text into numbers they can understand"
+baseurl: ""
+url: "https://yourusername.github.io/vector-databases"
+
+# Theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Navigation
+header_pages:
+  - README.md
+  - UNDERSTANDING_TEXT_TO_VECTORS.md
+  - FLOWCHARTS.md
+
+# SEO and Social
+author: "Educational AI Project"
+twitter_username: ""
+github_username: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Exclude files - no need to exclude app files since they're in separate directory
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

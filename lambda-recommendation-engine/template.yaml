@@ -1,0 +1,260 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Vector-based Recommendation Engine POC - Lambda Function and API Gateway'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: 'dev'
+    Description: 'Environment name (dev, staging, prod)'
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 512
+    Runtime: python3.9
+    Environment:
+      Variables:
+        ENVIRONMENT: !Ref Environment
+        CUSTOMER_EMBEDDINGS_TABLE: !Sub 'CustomerEmbeddings-${Environment}'
+        PRODUCT_EMBEDDINGS_TABLE: !Sub 'ProductEmbeddings-${Environment}'
+
+Resources:
+  # Lambda Function
+  RecommendationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub 'vector-recommendation-${Environment}'
+      CodeUri: .
+      Handler: lambda_function.lambda_handler
+      Description: 'Vector-based recommendation engine using cosine similarity'
+      Environment:
+        Variables:
+          CUSTOMER_EMBEDDINGS_TABLE: !Sub 'CustomerEmbeddings-${Environment}'
+          PRODUCT_EMBEDDINGS_TABLE: !Sub 'ProductEmbeddings-${Environment}'
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Sub 'CustomerEmbeddings-${Environment}'
+        - DynamoDBReadPolicy:
+            TableName: !Sub 'ProductEmbeddings-${Environment}'
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/vector-recommendation-${Environment}:*'
+      Events:
+        RecommendationApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref RecommendationApi
+            Path: /recommend
+            Method: post
+            RequestParameters:
+              - method.request.header.Content-Type:
+                  Required: true
+                  Caching: false
+
+  # API Gateway
+  RecommendationApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub 'vector-recommendation-api-${Environment}'
+      StageName: !Ref Environment
+      Description: 'API Gateway for Vector Recommendation Engine'
+      Cors:
+        AllowMethods: "'POST, OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+      GatewayResponses:
+        DEFAULT_4XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        DEFAULT_5XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+      DefinitionBody:
+        swagger: '2.0'
+        info:
+          title: !Sub 'Vector Recommendation API - ${Environment}'
+          version: '1.0'
+        basePath: !Sub '/${Environment}'
+        schemes:
+          - https
+        consumes:
+          - application/json
+        produces:
+          - application/json
+        paths:
+          /recommend:
+            post:
+              summary: 'Get product recommendations for a customer'
+              description: 'Returns top 5 product recommendations based on customer preferences using vector similarity'
+              consumes:
+                - application/json
+              produces:
+                - application/json
+              parameters:
+                - in: body
+                  name: body
+                  required: true
+                  schema:
+                    type: object
+                    required:
+                      - customer_id
+                    properties:
+                      customer_id:
+                        type: string
+                        description: 'Unique customer identifier'
+                        example: 'CUST_001'
+              responses:
+                '200':
+                  description: 'Successful response with recommendations'
+                  schema:
+                    type: object
+                    properties:
+                      customer_id:
+                        type: string
+                        example: 'CUST_001'
+                      recommendations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            product_id:
+                              type: string
+                              example: 'PROD_123'
+                            product_name:
+                              type: string
+                              example: 'Wireless Bluetooth Headphones'
+                            similarity_score:
+                              type: number
+                              format: float
+                              example: 0.95
+                      processing_time_ms:
+                        type: integer
+                        example: 1250
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: string
+                      default: "'*'"
+                '400':
+                  description: 'Bad Request - Invalid input'
+                  schema:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: 'Bad Request'
+                      message:
+                        type: string
+                        example: 'Missing required parameter: customer_id'
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: string
+                      default: "'*'"
+                '404':
+                  description: 'Customer not found'
+                  schema:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: 'Customer not found'
+                      customer_id:
+                        type: string
+                        example: 'CUST_999'
+                      message:
+                        type: string
+                        example: 'No embedding found for the provided customer ID'
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: string
+                      default: "'*'"
+                '500':
+                  description: 'Internal Server Error'
+                  schema:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: 'Internal Server Error'
+                      message:
+                        type: string
+                        example: 'An unexpected error occurred'
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: string
+                      default: "'*'"
+              x-amazon-apigateway-integration:
+                type: aws_proxy
+                httpMethod: POST
+                uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RecommendationFunction.Arn}/invocations'
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+            options:
+              summary: 'CORS preflight request'
+              responses:
+                '200':
+                  description: 'CORS preflight response'
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: string
+                      default: "'*'"
+                    Access-Control-Allow-Methods:
+                      type: string
+                      default: "'POST, OPTIONS'"
+                    Access-Control-Allow-Headers:
+                      type: string
+                      default: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              x-amazon-apigateway-integration:
+                type: mock
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+                      method.response.header.Access-Control-Allow-Methods: "'POST, OPTIONS'"
+                      method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+
+  # CloudWatch Log Group
+  RecommendationFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/vector-recommendation-${Environment}'
+      RetentionInDays: 14
+
+Outputs:
+  RecommendationApiUrl:
+    Description: 'API Gateway endpoint URL for Recommendation function'
+    Value: !Sub 'https://${RecommendationApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/recommend'
+    Export:
+      Name: !Sub '${AWS::StackName}-RecommendationApiUrl'
+
+  RecommendationFunctionArn:
+    Description: 'Recommendation Lambda Function ARN'
+    Value: !GetAtt RecommendationFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-RecommendationFunctionArn'
+
+  RecommendationApiId:
+    Description: 'API Gateway ID'
+    Value: !Ref RecommendationApi
+    Export:
+      Name: !Sub '${AWS::StackName}-RecommendationApiId'

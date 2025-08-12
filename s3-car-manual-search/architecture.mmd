@@ -1,0 +1,150 @@
+%% S3 Car Manual Search System - Architecture Diagram
+%% Created for vector-database-genai project
+
+graph TB
+    %% User Interface Layer
+    subgraph "User Interface Layer"
+        UI[Streamlit Web App<br/>🔧 Car Manual Search]
+        UI --> |Search Query| SEARCH
+        UI --> |Browse Categories| CATEGORY
+        UI --> |View All Sections| OVERVIEW
+    end
+
+    %% Application Layer
+    subgraph "Application Layer"
+        SEARCH[Search Service<br/>Main Orchestrator]
+        EMBED[Embedding Service<br/>sentence-transformers]
+        S3SVC[S3 Vector Service<br/>AWS S3 Operations]
+        MANUAL[Manual Processor<br/>Data Management]
+    end
+
+    %% Data Layer
+    subgraph "Data Layer"
+        S3[(AWS S3 Bucket<br/>car-manual-vectors)]
+        CACHE[Local Cache<br/>Embeddings & Metadata]
+        JSON[Manual Data<br/>car_manual_sections.json]
+    end
+
+    %% External Services
+    subgraph "External Services"
+        AWS[AWS Credentials<br/>IAM/Environment]
+        MODEL[Embedding Model<br/>all-MiniLM-L6-v2]
+    end
+
+    %% Data Flow Connections
+    UI --> SEARCH
+    SEARCH --> EMBED
+    SEARCH --> S3SVC
+    SEARCH --> MANUAL
+    SEARCH --> CACHE
+    
+    EMBED --> MODEL
+    EMBED --> CACHE
+    
+    S3SVC --> S3
+    S3SVC --> AWS
+    
+    MANUAL --> JSON
+    MANUAL --> CACHE
+
+    %% Search Flow
+    subgraph "Search Flow Process"
+        Q[User Query] --> QEMB[Generate Query Embedding]
+        QEMB --> SIM[Calculate Similarity]
+        SIM --> RANK[Rank Results]
+        RANK --> DISPLAY[Display Top 5 Results]
+    end
+
+    %% Data Upload Flow
+    subgraph "Data Upload Process"
+        UPLOAD[Upload Manual Data] --> PROCESS[Process Sections]
+        PROCESS --> GENEMB[Generate Embeddings]
+        GENEMB --> UPLOADS3[Upload to S3]
+        UPLOADS3 --> METADATA[Store Metadata]
+    end
+
+    %% Styling
+    classDef uiLayer fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef appLayer fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef dataLayer fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef externalLayer fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef flowLayer fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+
+    class UI uiLayer
+    class SEARCH,EMBED,S3SVC,MANUAL appLayer
+    class S3,CACHE,JSON dataLayer
+    class AWS,MODEL externalLayer
+    class Q,QEMB,SIM,RANK,DISPLAY,UPLOAD,PROCESS,GENEMB,UPLOADS3,METADATA flowLayer
+
+    %% Component Details
+    subgraph "Component Details"
+        subgraph "Search Service Features"
+            VECTOR[Vector Search<br/>Semantic Similarity]
+            KEYWORD[Keyword Fallback<br/>Traditional Search]
+            CATEGORY[Category Filter<br/>System-based Browse]
+            CACHE[Result Caching<br/>Performance Optimization]
+        end
+
+        subgraph "Embedding Service Features"
+            LOCAL[Local Processing<br/>Cost-effective]
+            BATCH[Batch Processing<br/>Memory Efficient]
+            SIMILARITY[Cosine Similarity<br/>Relevance Scoring]
+            MODEL_CACHE[Model Caching<br/>Fast Loading]
+        end
+
+        subgraph "S3 Service Features"
+            BUCKET[Auto Bucket Creation<br/>Error Handling]
+            UPLOAD[Data Upload<br/>Embeddings & Metadata]
+            DOWNLOAD[Data Retrieval<br/>Caching Support]
+            CONNECTION[Connection Management<br/>Credential Handling]
+        end
+    end
+
+    %% System Architecture Overview
+    subgraph "System Architecture Overview"
+        subgraph "Frontend (Streamlit)"
+            WEB[Web Interface<br/>Interactive Search]
+            STATUS[System Status<br/>Connection Monitoring]
+            RESULTS[Result Display<br/>Expandable Sections]
+        end
+
+        subgraph "Backend Services"
+            ORCHESTRATOR[Search Orchestrator<br/>Request Routing]
+            EMBEDDING[Embedding Engine<br/>Vector Generation]
+            STORAGE[S3 Storage Manager<br/>Data Persistence]
+            PROCESSOR[Data Processor<br/>Manual Management]
+        end
+
+        subgraph "Storage Layer"
+            CLOUD[AWS S3<br/>Scalable Storage]
+            LOCAL_STORAGE[Local Cache<br/>Performance]
+            CONFIG[Configuration<br/>Environment Variables]
+        end
+    end
+
+    %% Data Flow Sequence
+    sequenceDiagram
+        participant U as User
+        participant S as Search Service
+        participant E as Embedding Service
+        participant S3 as S3 Service
+        participant C as Cache
+        participant AWS as AWS S3
+
+        U->>S: Submit Search Query
+        S->>C: Check Cache
+        alt Cache Hit
+            C->>S: Return Cached Results
+        else Cache Miss
+            S->>E: Generate Query Embedding
+            E->>S: Return Query Vector
+            S->>S3: Request Document Embeddings
+            S3->>AWS: Download Embeddings
+            AWS->>S3: Return Embeddings
+            S3->>S: Return Document Vectors
+            S->>E: Calculate Similarities
+            E->>S: Return Similarity Scores
+            S->>S: Rank Results
+            S->>C: Cache Results
+        end
+        S->>U: Return Top 5 Results 

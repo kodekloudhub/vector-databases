@@ -1,0 +1,200 @@
+{
+  "sections": [
+    {
+      "id": "ENG_001",
+      "category": "Engine",
+      "title": "Engine Oil Change Procedure",
+      "content": "To change engine oil: 1. Warm up engine to operating temperature (5-10 minutes). 2. Raise vehicle safely using jack and jack stands. 3. Locate oil drain plug under oil pan. 4. Remove drain plug with 17mm wrench, allow oil to drain completely (15-20 minutes). 5. Replace drain plug with new gasket, torque to 25-30 ft-lbs. 6. Remove oil filter using filter wrench (turn counterclockwise). 7. Apply thin layer of new oil to new filter gasket. 8. Install new filter hand-tight plus 3/4 turn. 9. Lower vehicle. 10. Add new oil through filler cap (check capacity in manual). 11. Check oil level with dipstick after 5 minutes. 12. Start engine, check for leaks.",
+      "keywords": ["oil change", "engine oil", "drain plug", "oil filter", "maintenance", "lubrication"]
+    },
+    {
+      "id": "ENG_002",
+      "category": "Engine",
+      "title": "Spark Plug Replacement",
+      "content": "To replace spark plugs: 1. Allow engine to cool completely. 2. Remove engine cover if equipped. 3. Disconnect spark plug wires or coil packs. 4. Clean around spark plug wells with compressed air. 5. Remove spark plugs using spark plug socket (usually 16mm or 5/8 inch). 6. Check gap on new plugs with feeler gauge (typically 0.028-0.060 inches). 7. Apply anti-seize compound to threads. 8. Install new plugs hand-tight, then 1/2 turn with wrench. 9. Reconnect wires or coil packs. 10. Start engine and check for smooth idle.",
+      "keywords": ["spark plugs", "ignition", "engine misfire", "tune up", "gap", "coil packs"]
+    },
+    {
+      "id": "ENG_003",
+      "category": "Engine",
+      "title": "Engine Overheating Diagnosis",
+      "content": "To diagnose engine overheating: 1. Check coolant level in radiator and overflow tank when engine is cool. 2. Inspect radiator for leaks, damage, or blockage. 3. Check radiator cap for proper pressure rating and seal. 4. Test thermostat by feeling upper radiator hose - should get hot when thermostat opens. 5. Check cooling fan operation - should turn on when engine reaches operating temperature. 6. Inspect water pump for leaks around weep hole. 7. Check for blown head gasket - look for white smoke from exhaust or coolant in oil. 8. Test radiator cap pressure with pressure tester. 9. Flush cooling system if contaminated.",
+      "keywords": ["overheating", "coolant", "radiator", "thermostat", "cooling fan", "water pump", "head gasket"]
+    },
+    {
+      "id": "ENG_004",
+      "category": "Engine",
+      "title": "Air Filter Replacement",
+      "content": "To replace air filter: 1. Locate air filter housing (usually rectangular or round box near engine). 2. Remove clips or screws securing air filter housing cover. 3. Lift out old air filter, noting orientation. 4. Clean inside of housing with damp cloth. 5. Insert new filter in same orientation as old one. 6. Ensure filter seals properly around edges. 7. Replace housing cover and secure clips or screws. 8. Start engine to verify proper installation. Replace every 12,000-15,000 miles or when visibly dirty.",
+      "keywords": ["air filter", "engine breathing", "maintenance", "fuel economy", "performance"]
+    },
+    {
+      "id": "ENG_005",
+      "category": "Engine",
+      "title": "Timing Belt Replacement",
+      "content": "To replace timing belt: 1. Remove engine covers and accessories for access. 2. Set engine to TDC (Top Dead Center) on cylinder #1. 3. Remove crankshaft pulley using puller tool. 4. Remove timing belt covers. 5. Mark timing marks on camshaft and crankshaft pulleys. 6. Remove timing belt tensioner. 7. Remove old timing belt. 8. Install new belt following timing marks exactly. 9. Install new tensioner and adjust tension per specification. 10. Rotate engine 2 complete turns by hand to verify timing. 11. Reinstall covers and accessories. Critical: Do not turn engine with belt removed!",
+      "keywords": ["timing belt", "timing marks", "TDC", "camshaft", "crankshaft", "tensioner", "interference engine"]
+    },
+    {
+      "id": "BRK_001",
+      "category": "Brakes",
+      "title": "Brake Pad Replacement",
+      "content": "To replace brake pads: 1. Raise vehicle and remove wheel. 2. Remove caliper bolts (usually 13mm or 15mm). 3. Lift caliper off rotor and secure with wire. 4. Remove old brake pads from caliper bracket. 5. Check rotor for scoring or excessive wear. 6. Compress caliper piston using C-clamp or piston tool. 7. Apply brake grease to pad backing plates and caliper slides. 8. Install new pads with anti-squeal shims. 9. Reinstall caliper and torque bolts to specification (usually 70-90 ft-lbs). 10. Pump brake pedal several times before driving. 11. Bed in new pads with gentle stops for first 200 miles.",
+      "keywords": ["brake pads", "caliper", "rotor", "brake service", "piston", "brake grease", "bedding"]
+    },
+    {
+      "id": "BRK_002",
+      "category": "Brakes",
+      "title": "Brake Fluid Bleeding",
+      "content": "To bleed brake fluid: 1. Check brake fluid level in master cylinder. 2. Start with wheel farthest from master cylinder (usually right rear). 3. Attach clear tubing to bleeder valve. 4. Have assistant pump brake pedal 3 times and hold. 5. Open bleeder valve 1/4 turn, fluid will flow out. 6. Close valve before pedal reaches floor. 7. Repeat until fluid runs clear without air bubbles. 8. Move to next wheel in sequence. 9. Keep master cylinder topped off during process. 10. Test brake pedal - should be firm and high. 11. Check for leaks at all connections.",
+      "keywords": ["brake bleeding", "brake fluid", "air bubbles", "master cylinder", "bleeder valve", "brake pedal"]
+    },
+    {
+      "id": "BRK_003",
+      "category": "Brakes",
+      "title": "Brake Noise Diagnosis",
+      "content": "To diagnose brake noise: 1. Identify type of noise - squealing, grinding, or clicking. 2. Squealing usually indicates worn brake pads or glazed rotors. 3. Grinding noise means pads are completely worn, metal-to-metal contact. 4. Clicking may indicate loose brake hardware. 5. Remove wheels and inspect pad thickness (minimum 3mm). 6. Check rotor surface for scoring, heat spots, or warping. 7. Inspect caliper slides for binding or corrosion. 8. Check brake hardware for wear or damage. 9. Test drive to isolate which wheels are making noise. 10. Replace worn components as needed.",
+      "keywords": ["brake noise", "squealing", "grinding", "brake inspection", "worn pads", "rotor damage"]
+    },
+    {
+      "id": "BRK_004",
+      "category": "Brakes",
+      "title": "Brake Rotor Resurfacing",
+      "content": "To resurface brake rotors: 1. Remove brake caliper and pads. 2. Remove rotor from hub (may need to remove caliper bracket). 3. Measure rotor thickness with micrometer - must be above minimum specification. 4. Check for warping using dial indicator (maximum 0.002 inch runout). 5. Mount rotor on brake lathe. 6. Take light cuts to remove scoring and restore smooth surface. 7. Check final thickness - must be above discard specification. 8. Apply non-directional finish if required. 9. Clean rotor with brake cleaner before installation. 10. Install with new pads for best performance.",
+      "keywords": ["rotor resurfacing", "brake lathe", "rotor thickness", "runout", "warping", "minimum thickness"]
+    },
+    {
+      "id": "ELE_001",
+      "category": "Electrical",
+      "title": "Battery Testing and Replacement",
+      "content": "To test and replace battery: 1. Turn off engine and all electrical accessories. 2. Test battery voltage with multimeter - should read 12.6V when fully charged. 3. Perform load test - voltage should not drop below 9.6V under load. 4. Check specific gravity with hydrometer if serviceable battery. 5. Clean battery terminals with baking soda solution. 6. To replace: disconnect negative terminal first, then positive. 7. Remove battery hold-down bracket. 8. Install new battery, connect positive first, then negative. 9. Apply terminal protectant to prevent corrosion. 10. Test charging system after installation.",
+      "keywords": ["battery test", "battery replacement", "voltage", "load test", "terminals", "charging system"]
+    },
+    {
+      "id": "ELE_002",
+      "category": "Electrical",
+      "title": "Alternator Testing",
+      "content": "To test alternator: 1. Start engine and let idle. 2. Measure voltage at battery terminals - should read 13.5-14.5V. 3. Turn on headlights, A/C, and other electrical loads. 4. Voltage should remain above 13V under load. 5. Rev engine to 2000 RPM - voltage should increase slightly. 6. Check alternator belt tension and condition. 7. Inspect alternator connections for corrosion or looseness. 8. Listen for bearing noise or grinding sounds. 9. If voltage is low, alternator may need replacement. 10. Test with professional alternator tester for accurate diagnosis.",
+      "keywords": ["alternator test", "charging voltage", "electrical load", "belt tension", "alternator replacement"]
+    },
+    {
+      "id": "ELE_003",
+      "category": "Electrical",
+      "title": "Starter Motor Diagnosis",
+      "content": "To diagnose starter problems: 1. Turn key to start position - listen for clicking or grinding. 2. Single click usually indicates bad starter solenoid. 3. Rapid clicking indicates weak battery or poor connections. 4. Grinding noise suggests worn starter drive gear. 5. No sound at all may indicate ignition switch or neutral safety switch problem. 6. Check battery voltage during cranking - should not drop below 9.6V. 7. Test voltage at starter solenoid during cranking. 8. Check starter current draw with amp clamp. 9. Inspect starter mounting bolts for tightness. 10. Remove and bench test starter if necessary.",
+      "keywords": ["starter diagnosis", "clicking noise", "grinding", "solenoid", "cranking", "current draw"]
+    },
+    {
+      "id": "ELE_004",
+      "category": "Electrical",
+      "title": "Headlight Bulb Replacement",
+      "content": "To replace headlight bulb: 1. Open hood and locate headlight assembly. 2. Disconnect electrical connector from back of bulb. 3. Remove bulb retaining ring or clip (varies by vehicle). 4. Pull out old bulb - do not touch glass of new bulb with bare hands. 5. Insert new bulb into housing, ensuring proper alignment. 6. Secure with retaining ring or clip. 7. Reconnect electrical connector. 8. Test headlight operation before closing hood. 9. Adjust headlight aim if necessary using adjustment screws. 10. Replace both bulbs at same time for even light output.",
+      "keywords": ["headlight replacement", "bulb replacement", "headlight aim", "electrical connector", "lighting"]
+    },
+    {
+      "id": "ELE_005",
+      "category": "Electrical",
+      "title": "Fuse Replacement and Testing",
+      "content": "To replace fuses: 1. Locate fuse box (usually under hood or dashboard). 2. Identify blown fuse - metal strip will be broken or burned. 3. Use fuse puller tool to remove blown fuse. 4. Check fuse rating on top - must replace with same amperage. 5. Insert new fuse firmly into clips. 6. Test circuit operation. 7. If fuse blows again immediately, there is a short circuit. 8. Use multimeter to test fuse continuity if unsure. 9. Check fuse box diagram for circuit identification. 10. Keep spare fuses of common amperages in vehicle.",
+      "keywords": ["fuse replacement", "blown fuse", "short circuit", "fuse box", "amperage", "electrical troubleshooting"]
+    },
+    {
+      "id": "TRA_001",
+      "category": "Transmission",
+      "title": "Transmission Fluid Service",
+      "content": "To service transmission fluid: 1. Warm up transmission by driving 10-15 minutes. 2. Park on level surface with engine running. 3. Check fluid level with dipstick - should be between MIN and MAX marks. 4. Fluid should be red and smell sweet, not burned. 5. To change fluid: remove drain plug or drop pan. 6. Replace transmission filter if equipped. 7. Clean pan and install with new gasket. 8. Refill with correct type and amount of fluid. 9. Start engine and shift through all gears. 10. Recheck fluid level when warm. 11. Dispose of old fluid properly.",
+      "keywords": ["transmission fluid", "fluid change", "transmission filter", "dipstick", "fluid level", "ATF"]
+    },
+    {
+      "id": "TRA_002",
+      "category": "Transmission",
+      "title": "Clutch Adjustment",
+      "content": "To adjust clutch: 1. Locate clutch cable or hydraulic system. 2. For cable: find adjustment nut near clutch pedal or transmission. 3. Measure clutch pedal free play - typically 1/2 to 1 inch. 4. Turn adjustment nut to increase or decrease free play. 5. For hydraulic: check fluid level in clutch master cylinder. 6. Bleed clutch hydraulic system if spongy pedal. 7. Test clutch engagement point - should be in middle of pedal travel. 8. Check for clutch slipping under acceleration. 9. Verify complete disengagement when pedal is pressed. 10. Road test to confirm proper operation.",
+      "keywords": ["clutch adjustment", "clutch cable", "free play", "clutch pedal", "hydraulic clutch", "clutch bleeding"]
+    },
+    {
+      "id": "TRA_003",
+      "category": "Transmission",
+      "title": "CV Joint Replacement",
+      "content": "To replace CV joint: 1. Raise vehicle and remove wheel. 2. Remove brake caliper and rotor. 3. Remove axle nut (usually very tight, may need impact gun). 4. Disconnect ball joint and tie rod end. 5. Pull hub assembly outward to separate from CV joint. 6. Remove inner CV joint from transmission. 7. Cut old CV joint boot and remove joint. 8. Clean axle shaft thoroughly. 9. Install new CV joint with new boot and clamps. 10. Pack joint with CV grease. 11. Reassemble in reverse order. 12. Torque axle nut to specification.",
+      "keywords": ["CV joint", "axle replacement", "CV boot", "ball joint", "hub assembly", "CV grease"]
+    },
+    {
+      "id": "SUS_001",
+      "category": "Suspension",
+      "title": "Shock Absorber Replacement",
+      "content": "To replace shock absorbers: 1. Raise vehicle and support with jack stands. 2. Remove wheel for access. 3. Support lower control arm with jack. 4. Remove upper shock mounting nuts (usually 3 nuts). 5. Remove lower shock bolt and nut. 6. Remove old shock absorber. 7. Compare new shock to old for correct length and mounting. 8. Install new shock, tighten upper nuts first. 9. Install lower bolt and torque to specification. 10. Lower vehicle and test drive for improved ride quality. 11. Replace shocks in pairs for best performance.",
+      "keywords": ["shock absorber", "suspension", "ride quality", "mounting nuts", "control arm", "shock replacement"]
+    },
+    {
+      "id": "SUS_002",
+      "category": "Suspension",
+      "title": "Wheel Alignment Check",
+      "content": "To check wheel alignment: 1. Inspect tires for uneven wear patterns. 2. Check tire pressure - must be correct for accurate alignment. 3. Test drive vehicle - should track straight without pulling. 4. Check steering wheel position when driving straight. 5. Measure toe using string line or alignment tools. 6. Check camber with camber gauge on level surface. 7. Inspect suspension components for wear or damage. 8. Professional alignment recommended for adjustments. 9. Typical symptoms of misalignment: tire wear, pulling, steering wheel off-center. 10. Alignment should be checked annually or after suspension work.",
+      "keywords": ["wheel alignment", "tire wear", "toe", "camber", "steering pull", "alignment check"]
+    },
+    {
+      "id": "SUS_003",
+      "category": "Suspension",
+      "title": "Tire Rotation Procedure",
+      "content": "To rotate tires: 1. Check tire pressure and adjust to specification. 2. Inspect tires for damage, uneven wear, or foreign objects. 3. Mark tire positions before removal. 4. For front-wheel drive: move front tires straight back, cross rear tires to front. 5. For rear-wheel drive: move rear tires straight forward, cross front tires to rear. 6. For directional tires: front to back on same side only. 7. Torque lug nuts to specification in star pattern. 8. Reset tire pressure monitoring system if equipped. 9. Record mileage and date of rotation. 10. Rotate every 5,000-7,500 miles for even wear.",
+      "keywords": ["tire rotation", "tire wear", "lug nuts", "tire pressure", "TPMS", "tire maintenance"]
+    },
+    {
+      "id": "AC_001",
+      "category": "AC/Heating",
+      "title": "AC Refrigerant Check",
+      "content": "To check AC refrigerant: 1. Start engine and turn AC to maximum cold. 2. Connect manifold gauges to high and low pressure ports. 3. Low side pressure should be 25-35 PSI, high side 200-250 PSI (varies by system). 4. Check sight glass if equipped - should show clear liquid, no bubbles. 5. Feel temperature of air from vents - should be 35-45°F colder than ambient. 6. Listen for compressor cycling - should engage and disengage. 7. Check for leaks using UV dye or electronic leak detector. 8. If low on refrigerant, add small amount and retest. 9. If system won't hold charge, locate and repair leak first. 10. Use only correct refrigerant type (R134a or R1234yf).",
+      "keywords": ["AC refrigerant", "manifold gauges", "compressor", "refrigerant leak", "sight glass", "R134a"]
+    },
+    {
+      "id": "AC_002",
+      "category": "AC/Heating",
+      "title": "Cabin Air Filter Replacement",
+      "content": "To replace cabin air filter: 1. Locate filter housing (usually behind glove box or under hood). 2. Remove glove box or access panel as needed. 3. Open filter housing clips or screws. 4. Note direction of airflow arrow on old filter. 5. Remove old filter and check for excessive dirt or debris. 6. Clean filter housing with vacuum or damp cloth. 7. Install new filter with airflow arrow pointing correct direction. 8. Close housing and secure clips or screws. 9. Test AC and heater operation. 10. Replace filter every 12,000-15,000 miles or annually.",
+      "keywords": ["cabin air filter", "air conditioning", "heater", "airflow", "filter replacement", "HVAC"]
+    },
+    {
+      "id": "AC_003",
+      "category": "AC/Heating",
+      "title": "Heater Core Diagnosis",
+      "content": "To diagnose heater core problems: 1. Check coolant level in radiator and overflow tank. 2. Feel both heater hoses - should be hot when engine is warm. 3. If one hose is cool, heater core may be clogged. 4. Check for coolant smell inside vehicle. 5. Look for coolant leaks on passenger floor. 6. Test heater control valve operation if equipped. 7. Flush heater core with garden hose (reverse flow). 8. Check blend door operation in HVAC system. 9. Verify thermostat is opening properly. 10. If core is leaking, replacement usually requires dashboard removal.",
+      "keywords": ["heater core", "coolant leak", "heater hoses", "HVAC", "blend door", "coolant smell"]
+    },
+    {
+      "id": "FUEL_001",
+      "category": "Fuel System",
+      "title": "Fuel Filter Replacement",
+      "content": "To replace fuel filter: 1. Relieve fuel system pressure by removing fuel pump fuse and running engine until it stalls. 2. Raise vehicle if filter is underneath. 3. Clean area around filter connections. 4. Use proper fuel line disconnect tools. 5. Remove old filter, noting flow direction arrow. 6. Install new filter with arrow pointing toward engine. 7. Reconnect fuel lines and secure with clips. 8. Reinstall fuel pump fuse. 9. Turn key to ON position several times to prime system. 10. Start engine and check for leaks. 11. Replace filter every 30,000-60,000 miles.",
+      "keywords": ["fuel filter", "fuel system", "fuel pressure", "fuel lines", "fuel pump", "filter replacement"]
+    },
+    {
+      "id": "FUEL_002",
+      "category": "Fuel System",
+      "title": "Fuel Injector Cleaning",
+      "content": "To clean fuel injectors: 1. Add fuel injector cleaner to gas tank (follow product instructions). 2. For manual cleaning: remove fuel rail and injectors. 3. Connect injectors to cleaning kit with appropriate adapters. 4. Use pressurized cleaning solvent to flush injectors. 5. Test injector spray pattern - should be fine, even mist. 6. Check injector resistance with multimeter (usually 12-16 ohms). 7. Replace O-rings when reinstalling injectors. 8. Apply thin coat of oil to O-rings before installation. 9. Torque fuel rail bolts to specification. 10. Start engine and check for smooth idle and no leaks.",
+      "keywords": ["fuel injectors", "injector cleaning", "fuel rail", "spray pattern", "O-rings", "fuel system cleaning"]
+    },
+    {
+      "id": "EXH_001",
+      "category": "Exhaust",
+      "title": "Muffler Replacement",
+      "content": "To replace muffler: 1. Raise vehicle and support safely. 2. Allow exhaust system to cool completely. 3. Spray penetrating oil on clamp bolts. 4. Cut exhaust pipe if clamps are seized. 5. Remove old muffler and hangers. 6. Compare new muffler to old for correct fit. 7. Install new muffler with new clamps and hangers. 8. Ensure proper clearance from fuel tank and body. 9. Start engine and check for exhaust leaks. 10. Test drive to verify proper sound level and performance.",
+      "keywords": ["muffler replacement", "exhaust system", "exhaust clamps", "exhaust hangers", "exhaust leak"]
+    },
+    {
+      "id": "COOL_001",
+      "category": "Cooling System",
+      "title": "Radiator Flush",
+      "content": "To flush radiator: 1. Allow engine to cool completely. 2. Drain coolant by opening radiator drain plug. 3. Remove radiator cap and thermostat. 4. Connect garden hose to radiator inlet. 5. Flush with water until it runs clear. 6. Install new thermostat with new gasket. 7. Fill system with 50/50 coolant mixture. 8. Run engine with heater on to remove air bubbles. 9. Check coolant level when cool and top off. 10. Dispose of old coolant properly at recycling center.",
+      "keywords": ["radiator flush", "coolant change", "thermostat", "cooling system", "antifreeze", "coolant mixture"]
+    },
+    {
+      "id": "STEER_001",
+      "category": "Steering",
+      "title": "Power Steering Fluid Check",
+      "content": "To check power steering fluid: 1. Park on level surface with engine off. 2. Locate power steering reservoir (usually near firewall). 3. Clean around reservoir cap before removing. 4. Check fluid level on dipstick - should be between MIN and MAX. 5. Fluid should be clear red or amber, not dark or foamy. 6. If low, add correct type of power steering fluid. 7. Start engine and turn steering wheel lock to lock several times. 8. Recheck level with engine running. 9. Look for leaks at pump, hoses, and steering rack. 10. Change fluid every 50,000-100,000 miles.",
+      "keywords": ["power steering fluid", "steering pump", "fluid level", "power steering leak", "steering rack"]
+    }
+  ]
+}
