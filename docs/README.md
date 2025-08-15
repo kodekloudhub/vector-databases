@@ -230,7 +230,3 @@ This app is free for everyone to use, especially for education and learning!
 - **Plotly** - for the cool interactive graphs
 
 ---
-
-**Happy Learning! 🎓**
-
-*Made with ❤️ to help students understand how AI works*

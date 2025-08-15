@@ -1,6 +1,6 @@
 """
 Sentence Transformers Text Embedding Module
-Provides transformer-based embeddings with dimensionality reduction for educational purposes.
+Provides transformer-based embeddings with dimensionality reduction.
 """
 
 import numpy as np
@@ -18,9 +18,6 @@ warnings.filterwarnings('ignore')
 class TransformerEmbedder:
     """
     Sentence Transformer based text embedder with 2D dimensionality reduction.
-    
-    This class provides educational text embedding using pre-trained transformer models
-    with PCA reduction to 2D for visualization purposes.
     """
     
     def __init__(self, model_name: str = 'all-MiniLM-L6-v2'):
@@ -161,87 +158,3 @@ class TransformerEmbedder:
             'paraphrase-MiniLM-L6-v2',  # Paraphrase detection
             'multi-qa-MiniLM-L6-cos-v1'  # Question answering
         ]
-    
-    def get_method_explanation(self) -> str:
-        """
-        Get educational explanation of the Sentence Transformers method.
-        
-        Returns:
-            Detailed explanation string
-        """
-        return f"""
-        **Sentence Transformers (Neural Embeddings)**
-        
-        Sentence Transformers use deep neural networks to create dense vector representations 
-        of text that capture semantic meaning. The current model: **{self.model_name}**
-        
-        **How it works:**
-        1. **Pre-trained Models**: Uses models trained on millions of text pairs
-        2. **Contextual Understanding**: Considers word relationships and context
-        3. **Dense Vectors**: Creates fixed-size vectors (typically 384-768 dimensions)
-        4. **Semantic Similarity**: Similar texts have similar vector representations
-        
-        **Advantages over TF-IDF:**
-        - Captures semantic meaning, not just word frequency
-        - Handles synonyms and paraphrases well
-        - Works with shorter texts and single sentences
-        - Considers word order and context
-        
-        **Process:**
-        - Input text → Transformer model → High-dimensional embedding
-        - PCA reduces {self.original_dim if self.original_dim else 'high'}-dimensional vectors to 2D for visualization
-        - Preserves semantic relationships in the reduced space
-        
-        **Use Cases:**
-        - Semantic search and similarity
-        - Text classification
-        - Clustering similar documents
-        - Question answering systems
-        """
-    
-    def get_model_details(self) -> Dict[str, str]:
-        """
-        Get detailed information about the current model.
-        
-        Returns:
-            Dictionary with model details
-        """
-        model_info = {
-            'all-MiniLM-L6-v2': {
-                'description': 'Fast and efficient model, good for most tasks',
-                'dimensions': '384',
-                'speed': 'Fast',
-                'quality': 'Good'
-            },
-            'all-mpnet-base-v2': {
-                'description': 'Best overall quality, slower but more accurate',
-                'dimensions': '768',
-                'speed': 'Slower',
-                'quality': 'Excellent'
-            },
-            'all-distilroberta-v1': {
-                'description': 'Good balance of speed and quality',
-                'dimensions': '768',
-                'speed': 'Medium',
-                'quality': 'Very Good'
-            },
-            'paraphrase-MiniLM-L6-v2': {
-                'description': 'Optimized for paraphrase detection',
-                'dimensions': '384',
-                'speed': 'Fast',
-                'quality': 'Good for paraphrases'
-            },
-            'multi-qa-MiniLM-L6-cos-v1': {
-                'description': 'Optimized for question-answer pairs',
-                'dimensions': '384',
-                'speed': 'Fast',
-                'quality': 'Good for Q&A'
-            }
-        }
-        
-        return model_info.get(self.model_name, {
-            'description': 'Custom model',
-            'dimensions': 'Variable',
-            'speed': 'Unknown',
-            'quality': 'Unknown'
-        })

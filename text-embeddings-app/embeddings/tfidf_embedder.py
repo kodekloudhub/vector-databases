@@ -1,6 +1,6 @@
 """
 TF-IDF Text Embedding Module
-Provides TF-IDF vectorization with dimensionality reduction for educational purposes.
+Provides TF-IDF vectorization with dimensionality reduction.
 """
 
 import numpy as np
@@ -16,9 +16,6 @@ from typing import Tuple, List, Dict, Any
 class TFIDFEmbedder:
     """
     TF-IDF based text embedder with 2D dimensionality reduction.
-    
-    This class provides educational text embedding using TF-IDF (Term Frequency-Inverse Document Frequency)
-    with PCA reduction to 2D for visualization purposes.
     """
     
     def __init__(self, max_features: int = 1000, ngram_range: Tuple[int, int] = (1, 2)):
@@ -179,31 +176,3 @@ class TFIDFEmbedder:
             "explained_variance_ratio": self.pca.explained_variance_ratio_.tolist(),
             "total_explained_variance": float(np.sum(self.pca.explained_variance_ratio_))
         }
-    
-    def get_method_explanation(self) -> str:
-        """
-        Get educational explanation of the TF-IDF method.
-        
-        Returns:
-            Detailed explanation string
-        """
-        return """
-        **TF-IDF (Term Frequency-Inverse Document Frequency)**
-        
-        TF-IDF is a numerical statistic that reflects how important a word is to a document 
-        in a collection of documents. It works by:
-        
-        1. **Term Frequency (TF)**: Measures how frequently a term appears in a document
-        2. **Inverse Document Frequency (IDF)**: Measures how rare or common a term is across all documents
-        3. **TF-IDF Score**: Multiplies TF × IDF to balance frequency with rarity
-        
-        **Process:**
-        - Higher scores for words that appear frequently in a document but rarely across the corpus
-        - Lower scores for common words (like "the", "and") that appear everywhere
-        - Creates sparse vectors where each dimension represents a unique word/n-gram
-        
-        **2D Reduction:**
-        - Uses PCA (Principal Component Analysis) to reduce high-dimensional TF-IDF vectors to 2D
-        - Preserves the most important variance in the data for visualization
-        - Each point in 2D space represents the "meaning" of the text in a compressed form
-        """
